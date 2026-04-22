@@ -52,7 +52,7 @@ const employees = [
     "password": "123",
     "taskNumber": {
       "active": 2,
-      "newTask": 1,
+      "newTask": 5,
       "completed": 1,
       "failed": 1
     },

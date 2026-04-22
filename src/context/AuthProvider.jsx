@@ -10,14 +10,13 @@ const [userData, setUserData] = useState(null)
 
 useEffect(() => {
   setLocalStorage()
-  const {employees,admin} = getLocalStorage()
-  setUserData({employees,admin})
+  const {employees} = getLocalStorage()
+  setUserData(employees)
 }, [])
-
 
   return (
     <div>
-        <AuthContext.Provider value = {userData}>
+        <AuthContext.Provider value = {[userData,setUserData]}>
           {children}
         </AuthContext.Provider>
        
@@ -26,3 +25,5 @@ useEffect(() => {
 }
 
 export default AuthProvider
+
+//this take the data from local storage and send everyone the data

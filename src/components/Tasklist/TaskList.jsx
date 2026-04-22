@@ -8,19 +8,20 @@ import CompleteTask from './CompleteTask'
 const TaskList = ({data}) => {
   return (
     <div id='tasklist' className='h-[300px] flex items-center flex-nowrap mt-10 gap-5 py-5 w-full overflow-x-auto'>
-     {data.tasks.map((elem,idx) =>{
+     {data?.tasks?.map((elem,idx) =>{
       if(elem.active){
-        return <AcceptTask key={idx}/>
+        return <AcceptTask key={idx} data ={elem}/>
       }
       if(elem.NewTask){
-        return <NewTask  key={idx}/>
+        return <NewTask  key={idx} data = {elem}/>
       }
       if(elem.completed){
-        return <CompleteTask  key={idx}/>
+        return <CompleteTask  key={idx} data = {elem}/>
       }
       if(elem.failed){
-        return <FailedTask  key={idx}/>
+        return <FailedTask  key={idx} data = {elem}/>
       }
+      return null
      })}
       {/* <div className='p-5 h-full w-[300px] flex-shrink-0 bg-[#F9FAFB] rounded-2xl shadow-sm'>
         <div className='flex justify-between items-center'>
