@@ -1,5 +1,8 @@
-localStorage.clear()
-
+// localStorage.clear()
+// if (!localStorage.getItem('employees')) {
+//   setLocalStorage()
+// }
+// localStorage.clear()
 const employees = [
   {
     "id": 1,
@@ -158,4 +161,3 @@ const admin = JSON.parse(localStorage.getItem('admin'))
   return {employees,admin}
 }
 
-// export default localStorage;

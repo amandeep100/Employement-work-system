@@ -5,18 +5,28 @@ export const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
 
-const [userData, setUserData] = useState(null)
-
+const [userData, setUserData] = useState([])
+ 
 
 useEffect(() => {
-  setLocalStorage()
+  if(!localStorage.getItem('employees')){
+    setLocalStorage()
+  }
   const {employees} = getLocalStorage()
   setUserData(employees)
 }, [])
 
+//adding taskfilter
+useEffect(() =>{
+  if(userData.length > 0){
+    localStorage.setItem('employees' , JSON.stringify(userData))
+  }
+
+},[userData])
+
   return (
     <div>
-        <AuthContext.Provider value = {[userData,setUserData]}>
+        <AuthContext.Provider value = {{ userData,setUserData}}>
           {children}
         </AuthContext.Provider>
        
@@ -26,4 +36,5 @@ useEffect(() => {
 
 export default AuthProvider
 
-//this take the data from local storage and send everyone the data
+// this take the data from local storage and send everyone the data
+

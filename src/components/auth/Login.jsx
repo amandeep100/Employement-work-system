@@ -10,11 +10,39 @@ const SubmitHandler = (e) =>{
     handleLogin(email,password)
     // console.log("form Submitted")
  
-    setEmail("")
-    setPassword("")
+    // setEmail("")
+    // setPassword("")
 
 }
 
+// const handleLogin = (email, password) => { 
+//   if (email === 'admin@me.com' && password === '123') {
+//     setUser('admin');
+//     localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }));
+//     return;
+//   }
+
+//   if (!authData || !authData.employees) {
+//     alert("Employee data not loaded");
+//     return;
+//   }
+
+//   const employee = authData.employees.find(
+//     (e) => e.email === email && e.password === password
+//   );
+
+//   if (employee) {
+//     setUser('employee');
+//     setLoggedInUserData(employee);
+
+//     localStorage.setItem(
+//       'loggedInUser',
+//       JSON.stringify({ role: 'employee', data: employee })
+//     );
+//   } else {
+//     alert("Invalid credentials");
+//   }
+// };
     return (
         <div className="flex h-screen w-screen items-center justify-center bg-gray">
             <div className="w-[350px] p-8 bg-gray-200 rounded-2xl shadow-lg">

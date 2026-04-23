@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
-import { FaMicrophone } from "react-icons/fa";
+import React, { useState,useContext } from 'react'
 import { AuthContext } from '../../context/AuthProvider';
-
 const CreateTask = () => {
-const[userData,setUserData] = useContext(AuthContext)
+const{userData,setUserData} = useContext(AuthContext)
 
 const[taskTitle,setTaskTitle] = useState('')
 const[taskDescription,setTaskDescription] = useState('')
 const[taskDate,setTaskDate] = useState('')
-const [assignTo,setAssigTo] = useState('')
+const [assignTo, setAssignTo] = useState('')
 const [category,setCategory] = useState('')
-   const [newTask, setNewTask] = useState([])
-  const submitHandler = () =>{
+   const [newTask, setNewTask] = useState({})
+  const submitHandler = (e) =>{
   e.preventDefault()
     // set this task into localstorage
   setNewTask({taskDate,taskDescription,taskTitle,category,active:false,newTask:true,failed:false,completed:false})
-   const data =   userData
+   const data =  [...userData]
          
-    data.forEach(function(elem){
+    data.forEach((elem) => {
         if(assignTo == elem.firstName){
            elem.tasks.push(newTask)
-           elem.taskNumber.newTask = elem.taskNumber.newTask+1
+           elem.taskNumber.newTask+1
         }
     })
     setUserData(data)
@@ -28,6 +26,7 @@ const [category,setCategory] = useState('')
 
 
     setAssigTo('')
+
     setTaskDate('')
     setCategory('')
     setTaskDescription('')
@@ -120,3 +119,4 @@ const [category,setCategory] = useState('')
 }
 
 export default CreateTask
+
